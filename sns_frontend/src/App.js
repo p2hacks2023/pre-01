@@ -7,11 +7,13 @@ import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 import PostForm from './components/PostForm';
 import PostList from './components/PostList';
+import TimeLine from './components/TimeLine';
 import axios from 'axios';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
+  
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -47,7 +49,18 @@ function App() {
           <li>
             <Link to="/">Home</Link>
           </li>
-          {loggedIn ? (
+          <li>
+                <Link to="/profile">Profile</Link>
+              </li>
+              <li>
+                <Link to="/post">Post</Link>
+              </li>
+              <li>
+                <button onClick={handleLogout}>Logout</button>
+              </li>
+
+            
+          {/* {loggedIn ? (
             <>
               <li>
                 <Link to="/profile">Profile</Link>
@@ -68,10 +81,13 @@ function App() {
                 <Link to="/login">Login</Link>
               </li>
             </>
-          )}
+          )} */}
         </ul>
       </nav>
+      {/*タイムラインコンポーネント用タグ*/}
+      <div className='timeline-container'>
 
+      </div>
       <Routes>
         <Route
           path="/"
@@ -91,7 +107,9 @@ function App() {
         />
         <Route
           path="/post"
-          element={loggedIn ? <PostForm /> : <Navigate to="/login" />}
+          //ログインせずともフォーム表示するように変更
+          // element={loggedIn ? <PostForm /> : <Navigate to="/login" />}
+          element={<PostForm/>}
         />
         <Route
           path="/post-form"
@@ -103,6 +121,7 @@ function App() {
         />
       </Routes>
     </Router>
+    
   );
 }
 

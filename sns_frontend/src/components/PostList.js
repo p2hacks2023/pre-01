@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const PostList = () => {
   const [posts, setPosts] = useState([]);
-
+  
   useEffect(() => {
     // 投稿を取得するAPI呼び出し
     const fetchPosts = async () => {
