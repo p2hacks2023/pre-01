@@ -8,12 +8,25 @@ import LoginForm from './components/LoginForm';
 import PostForm from './components/PostForm';
 import PostList from './components/PostList';
 import TimeLine from './components/TimeLine';
+
+import './css/App.scss'
+
+
+
 import axios from 'axios';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
-  
+  const [isShown, setIsShown] = useState(false)
+
+  const handleToggleButtonClick = () => {
+    setIsShown(true)
+  }
+
+  const handleCloseButtonClick = () => {
+    setIsShown(false)
+  }
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -43,51 +56,65 @@ function App() {
   };
 
   return (
+    
     <Router>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-                <Link to="/profile">Profile</Link>
-              </li>
-              <li>
-                <Link to="/post">Post</Link>
-              </li>
-              <li>
-                <button onClick={handleLogout}>Logout</button>
-              </li>
-
-            
-          {/* {loggedIn ? (
-            <>
-              <li>
-                <Link to="/profile">Profile</Link>
-              </li>
-              <li>
-                <Link to="/post">Post</Link>
-              </li>
-              <li>
-                <button onClick={handleLogout}>Logout</button>
-              </li>
-            </>
-          ) : (
-            <>
-              <li>
-                <Link to="/register">Register</Link>
-              </li>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-            </>
-          )} */}
-        </ul>
-      </nav>
       {/*タイムラインコンポーネント用タグ*/}
-      <div className='timeline-container'>
+      <div className='gui-container'>
+        <div className='timeline-container'>
+          <button onClick={handleToggleButtonClick}>
+            Toggle Menu
+          </button>
+          <div className={`popup-menu ${isShown ? 'shown' : ''}`}>
+            <div>menu</div>
+            <button onClick={handleCloseButtonClick}>
+              Close Menu
+            </button>
+          </div>
+        </div>
 
+        <nav className='navmenu'>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+                  <Link to="/profile">Profile</Link>
+                </li>
+                <li>
+                  <Link to="/post">Post</Link>
+                </li>
+                <li>
+                  <button onClick={handleLogout}>Logout</button>
+                </li>
+                
+
+              
+            {/* {loggedIn ? (
+              <>
+                <li>
+                  <Link to="/profile">Profile</Link>
+                </li>
+                <li>
+                  <Link to="/post">Post</Link>
+                </li>
+                <li>
+                  <button onClick={handleLogout}>Logout</button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/register">Register</Link>
+                </li>
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+              </>
+            )} */}
+          </ul>
+        </nav>
       </div>
+      
       <Routes>
         <Route
           path="/"

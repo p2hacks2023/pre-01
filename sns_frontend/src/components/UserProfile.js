@@ -45,6 +45,15 @@ const UserProfile = () => {
       ) : (
         <p>Loading profile...</p>
       )}
+
+      <div>
+          <h1>テストユーザー's Profile</h1>
+          <p>Email:testuser.email</p>
+          {/* その他のプロフィール情報を表示 */}
+          <Link to="/posts">View Posts</Link>
+          <button onClick={() => navigate('/post-form')}>投稿する</button>
+      </div>
+
     </div>
   );
 };

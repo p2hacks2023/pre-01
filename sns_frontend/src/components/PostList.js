@@ -20,12 +20,19 @@ const PostList = () => {
   }, []);
 
   return (
-    <div>
+    <div class >
       <h1>Post List</h1>
       <ul>
         {posts.map((post) => (
-          <li key={post.id}>{post.content}</li>
+          <li key={post.id}>
+            {post.content}
+          </li>
         ))}
+        {/*テスト用リスト*/ }
+        <li>
+           テスト用ポスト
+        </li>
+          
       </ul>
     </div>
   );
