@@ -61,9 +61,6 @@ function App() {
       {/*タイムラインコンポーネント用タグ*/}
       <div className='gui-container'>
         <div className='timeline-container'>
-          <button onClick={handleToggleButtonClick}>
-            Toggle Menu
-          </button>
           <div className={`popup-menu ${isShown ? 'shown' : ''}`}>
             <div>menu</div>
             <button onClick={handleCloseButtonClick}>
@@ -73,6 +70,9 @@ function App() {
         </div>
 
         <nav className='navmenu'>
+          <button onClick={handleToggleButtonClick}>
+            Toggle Menu
+          </button>
           <ul>
             <li>
               <Link to="/">Home</Link>
