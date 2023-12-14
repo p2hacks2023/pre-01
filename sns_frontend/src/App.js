@@ -1,6 +1,6 @@
 // src/App.js
 
-import React, { useState, useEffect ,useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
 import UserProfile from './components/UserProfile';
 import RegisterForm from './components/RegisterForm';
@@ -41,7 +41,7 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     console.log('Token:', token);
-  
+
     if (token) {
       axios.get('http://localhost:3001/user-profile', {
         headers: {
@@ -66,15 +66,15 @@ function App() {
   };
 
   return (
-    
+
     <Router>
       {/*タイムラインコンポーネント用タグ*/}
       <div className='gui-container'>
         <div className='timeline-Base'>
-          <TimeLine Bool={true} TriggerBool={isShown} setIsShown={setIsShown}/>
+          <TimeLine Bool={true} TriggerBool={isShown} setIsShown={setIsShown} isLoggedIn={true} />
         </div>
         <nav className='navmenu'>
-          <TimeLine Bool={false}  TriggerBool={handleShow}/>
+          <TimeLine Bool={false} TriggerBool={handleShow} />
           {/*タイムラインコンポーネント表示ボタン*/}
           <button onClick={handleShow}>open</button>
           <button onClick={handleClose}>close</button>
@@ -84,17 +84,17 @@ function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-                  <Link to="/profile">Profile</Link>
-                </li>
-                <li>
-                  <Link to="/post">Post</Link>
-                </li>
-                <li>
-                  <button onClick={handleLogout}>Logout</button>
-                </li>
-                
+              <Link to="/profile">Profile</Link>
+            </li>
+            <li>
+              <Link to="/post">Post</Link>
+            </li>
+            <li>
+              <button onClick={handleLogout}>Logout</button>
+            </li>
 
-            
+
+            {/*ログイン判別機能をコメントアウト*/}
             {/* {loggedIn ? (
               <>
                 <li>
@@ -120,7 +120,7 @@ function App() {
           </ul>
         </nav>
       </div>
-      
+
       <Routes>
         <Route
           path="/"
@@ -142,19 +142,19 @@ function App() {
           path="/post"
           //ログインせずともフォーム表示するように変更
           // element={loggedIn ? <PostForm /> : <Navigate to="/login" />}
-          element={<PostForm/>}
+          element={<PostForm />}
         />
         <Route
           path="/post-form"
-          element={<PostForm />}  
+          element={<PostForm />}
         />
         <Route
-        path="/posts"
-        element={<PostList />}
+          path="/posts"
+          element={<PostList />}
         />
       </Routes>
     </Router>
-    
+
   );
 }
 

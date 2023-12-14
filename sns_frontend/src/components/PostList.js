@@ -1,7 +1,8 @@
 // PostList.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import "../css/PostList.scss"
+import Post from "./Post.js"
 const PostList = () => {
   const [posts, setPosts] = useState([]);
   
@@ -20,19 +21,24 @@ const PostList = () => {
   }, []);
 
   return (
-    <div class >
-      <h1>Post List</h1>
-      <ul>
+    <div className='postlists-Frame'>
+      {/* <h1>Post List</h1> */}
+      <ul className='postlists'>
         {posts.map((post) => (
           <li key={post.id}>
             {post.content}
           </li>
         ))}
         {/*テスト用リスト*/ }
-        <li>
-           テスト用ポスト
-        </li>
-          
+        <Post/>
+        <Post/>
+        <Post/>
+        <Post/>
+        <Post/>
+        <Post/>
+        <Post/>
+        <Post/>
+        <Post/>
       </ul>
     </div>
   );
