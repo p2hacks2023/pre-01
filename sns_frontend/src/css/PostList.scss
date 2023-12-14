@@ -13,7 +13,9 @@ ul{
     overflow-y: scroll;
     border-radius:0 0 20px 20px;
 }
+$postheight:calc(919.59 - 200);
 .postlists-Frame{
-    height: calc(max-height - 200px);
+    //要調整
+    height: 719.59px;
     
 }
