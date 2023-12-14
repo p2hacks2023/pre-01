@@ -1,6 +1,6 @@
 // src/App.js
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect ,useRef} from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
 import UserProfile from './components/UserProfile';
 import RegisterForm from './components/RegisterForm';
@@ -20,13 +20,22 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
   const [isShown, setIsShown] = useState(false)
+  //タイムライン外クリック時用変数
+  const onClickBackground = () => {
+    handleShow();
+  };
 
-  const handleToggleButtonClick = (newBool) => {
-    setIsShown(newBool)
-  }
+  // 枠内クリック
+  // const onClickCard = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  //   e.stopPropagation();
+  // };
 
-  const handleCloseButtonClick = () => {
+  //タイムライン表示切り替え関数
+  const handleClose = () => {
     setIsShown(false)
+  }
+  const handleShow = () => {
+    setIsShown(true)
   }
 
   useEffect(() => {
@@ -61,10 +70,15 @@ function App() {
     <Router>
       {/*タイムラインコンポーネント用タグ*/}
       <div className='gui-container'>
-        <TimeLine Bool={true} />
-
+        <div className='timeline-Base'>
+          <TimeLine Bool={true} TriggerBool={isShown} setIsShown={setIsShown}/>
+        </div>
         <nav className='navmenu'>
-          <TimeLine/>
+          <TimeLine Bool={false}  TriggerBool={handleShow}/>
+          {/*タイムラインコンポーネント表示ボタン*/}
+          <button onClick={handleShow}>open</button>
+          <button onClick={handleClose}>close</button>
+
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -80,7 +94,7 @@ function App() {
                 </li>
                 
 
-              
+            
             {/* {loggedIn ? (
               <>
                 <li>
