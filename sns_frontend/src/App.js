@@ -8,6 +8,7 @@ import LoginForm from './components/LoginForm';
 import PostForm from './components/PostForm';
 import PostList from './components/PostList';
 import TimeLine from './components/TimeLine';
+import TimeLineTrigger from './components/TimeLineTrigger';
 
 import './css/App.scss'
 
@@ -20,8 +21,8 @@ function App() {
   const [userProfile, setUserProfile] = useState(null);
   const [isShown, setIsShown] = useState(false)
 
-  const handleToggleButtonClick = () => {
-    setIsShown(true)
+  const handleToggleButtonClick = (newBool) => {
+    setIsShown(newBool)
   }
 
   const handleCloseButtonClick = () => {
@@ -60,19 +61,10 @@ function App() {
     <Router>
       {/*タイムラインコンポーネント用タグ*/}
       <div className='gui-container'>
-        <div className='timeline-container'>
-          <div className={`popup-menu ${isShown ? 'shown' : ''}`}>
-            <div>menu</div>
-            <button onClick={handleCloseButtonClick}>
-              Close Menu
-            </button>
-          </div>
-        </div>
+        <TimeLine Bool={true} />
 
         <nav className='navmenu'>
-          <button onClick={handleToggleButtonClick}>
-            Toggle Menu
-          </button>
+          <TimeLine/>
           <ul>
             <li>
               <Link to="/">Home</Link>
