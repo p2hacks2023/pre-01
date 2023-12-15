@@ -39,15 +39,17 @@ function PostForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Post Content:</label>
-        <textarea value={postContent} onChange={(e) => setPostContent(e.target.value)} required />
-      </div>
-      <div>
-        <button type="submit">Post</button>
-      </div>
-    </form>
+    <div className="form-Frame">
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Post Content:</label>
+          <textarea value={postContent} onChange={(e) => setPostContent(e.target.value)} required />
+        </div>
+        <div>
+          <button type="submit">Post</button>
+        </div>
+      </form>
+    </div>
   );
 }
 

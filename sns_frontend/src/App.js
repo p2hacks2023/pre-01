@@ -8,6 +8,7 @@ import LoginForm from './components/LoginForm';
 import PostForm from './components/PostForm';
 import PostList from './components/PostList';
 import TimeLine from './components/TimeLine';
+import Playground from './components/Playground';
 import TimeLineTrigger from './components/TimeLineTrigger';
 
 import './css/App.scss'
@@ -66,10 +67,13 @@ function App() {
   };
 
   return (
-
+  
     <Router>
       {/*タイムラインコンポーネント用タグ*/}
       <div className='gui-container'>
+        <div className="playground-Base">
+          <Playground/>
+        </div>
         <div className='timeline-Base'>
           <TimeLine Bool={true} TriggerBool={isShown} setIsShown={setIsShown} isLoggedIn={true} />
         </div>

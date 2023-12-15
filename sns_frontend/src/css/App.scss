@@ -50,6 +50,8 @@ body{
   width: 100%;
   height: 100%;
   position: relative;
+  
+  background-color:#c4f1ff;
 }
 // .timeline-container {
 //   width: 300px;
@@ -77,4 +79,13 @@ body{
 }
 #root{
   height: 100%;
+}
+.playground-Base{
+  width: 100%;
+  height: 100%;
+
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
 }
