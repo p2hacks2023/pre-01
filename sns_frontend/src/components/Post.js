@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "../css/Post.scss"
 
-function Post({props}) {
+function Post(props) {
     return (
         <div className='post-Frame'>
             <div className="post-Body">
                 <li className='post'>
-                    {props.content()}
+                    {props.content}
                 </li>
             </div>
     
@@ -18,6 +18,5 @@ function Post({props}) {
     
         </div>
       );
-
 }
 export default Post;
