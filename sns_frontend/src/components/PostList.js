@@ -27,7 +27,7 @@ const PostList = () => {
         {posts.map((post) => (
           <li key={post.id}>
             
-            <Post key={post.id} content={post.content}/>
+            <Post content={'あいうえ'}/>
           </li>
         ))}
         {/*テスト用リスト*/ }
