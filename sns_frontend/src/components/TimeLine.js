@@ -1,25 +1,17 @@
 //src/components/TimeLine.js
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
+import React, {} from 'react';
+
 import '../css/TimeLine.scss'
 import UserProfile from './UserProfile';
 import PostList from './PostList';
 
 function TimeLine(props) {
-    const [isButton, setIsButton] = useState(true);
-    const [isShown, setIsShown] = useState(false)
-    const [loggedIn,setLoggedIn]= useState(true)
-    const handleToggleButtonClick = () => {
-        setIsShown(true)
+    // const [isButton, setIsButton] = useState(true);
+   
 
-    }
-
-    const handleCloseButtonClick = () => {
-        setIsShown(false)
-    }
-    const parentIsShowSetter = () => {
-        props.setIsShown(false)
-    }
+    // const handleCloseButtonClick = () => {
+    //     setIsShown(false)
+    // }
 
     if (props.Bool) {
         //タイムライン構成
@@ -35,11 +27,6 @@ function TimeLine(props) {
             </div>
         )
     }
-    return (
-        <button onClick={handleToggleButtonClick}>
-            Toggle Menu
-        </button>
-    )
 
 }
 export default TimeLine;

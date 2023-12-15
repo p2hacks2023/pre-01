@@ -1,6 +1,6 @@
 // Animal.js
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { } from 'react';
+
 import "../css/Animal.scss"
 
 function Animal() {
@@ -11,6 +11,5 @@ function Animal() {
             </div>
         </div>
     );
-
 }
 export default Animal;
