@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "../css/Post.scss"
 
-function Post() {
+function Post({props}) {
     return (
         <div className='post-Frame'>
             <div className="post-Body">
                 <li className='post'>
-                    私わたくしはその人を常に先生と呼んでいた。だからここでもただ先生と書くだけで本名は打ち明けない。
+                    {props.content()}
                 </li>
             </div>
     

@@ -26,19 +26,11 @@ const PostList = () => {
       <ul className='postlists'>
         {posts.map((post) => (
           <li key={post.id}>
-            {post.content}
+            
+            <Post key={post.id} content={post.content}/>
           </li>
         ))}
         {/*テスト用リスト*/ }
-        <Post/>
-        <Post/>
-        <Post/>
-        <Post/>
-        <Post/>
-        <Post/>
-        <Post/>
-        <Post/>
-        <Post/>
       </ul>
     </div>
   );
