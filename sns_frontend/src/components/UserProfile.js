@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from 'react';
-<<<<<<< Updated upstream
-import { useNavigate, Link } from 'react-router-dom';
-import testImage from '../images/logo192.png'
-=======
 import { useNavigate, Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import whale from "../images/whale.png"
->>>>>>> Stashed changes
 import '../css/UserProfile.scss'
 
 const UserProfile = () => {
@@ -38,42 +33,6 @@ const UserProfile = () => {
 
     // UserProfileコンポーネントがマウントされた際にfetchProfileを呼び出す
     fetchProfile();
-<<<<<<< Updated upstream
-  }, []); // 一度だけ実行
-  //ログイン情報なしでプロフィール表示するように変更
-  return (
-    <div>
-      <div className='timeline-Profile'>
-          {/*プロフィール画像*/}
-          <div className='profile-Img-Frame'>
-            <img src={testImage} className="profile-Img" alt="logo" />
-            {/* <img className='profile-Img'></img> */}
-          </div>
-          {/*プロフィール右側*/}
-          <div className='profile-Right'>
-            {/*名前*/}
-            <div className='profile-Name-Frame'>
-              <div className='profile-Name'>Tanaka</div>
-            </div>
-            {/*フォローボタン*/}
-            <div className='profile-FollowB-Frame'>
-              <button className='profile-FollowB'>Follow</button>
-            </div>
-            {/*いいね数*/}
-            <div className="sweets-frame">
-              <div className="sweets-Head">Sweets</div>
-              <div className="sweets-Number">89</div>
-            </div>
-          </div>
-          {/*プロフィール下部分*/}
-          <div className='profile-Foot'>
-            {/*動物種類テキスト*/}
-            <div className="animalS-Frame">
-              <div className='animalS'>Penguin</div>
-            </div>
-          </div>
-        </div>
-=======
   }, [userId]); // userId と token を依存リストに追加
 
   return (
@@ -113,7 +72,6 @@ const UserProfile = () => {
       ) : (
         <p>Error fetching profile. Please try again later.</p>
       )}
->>>>>>> Stashed changes
     </div>
   );
 };

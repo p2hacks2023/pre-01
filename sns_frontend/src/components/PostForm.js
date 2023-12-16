@@ -52,11 +52,7 @@ function PostForm(props) {
         </div>
         </div>
         <div className='postSubmit-Frame'>
-<<<<<<< Updated upstream
-          <button type="submit" className='postSubmit'>Post</button>
-=======
           <button type="submit" className='postSubmit' onClick={props.setIsPosted()}>Post</button>
->>>>>>> Stashed changes
         </div>
       </form>
     </div>

@@ -17,12 +17,8 @@ import axios from 'axios';
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
-<<<<<<< Updated upstream
-  const [isShown, setIsShown] = useState(false)
-=======
   const [isShown, setIsShown] = useState(false);
   const [isPosted, setIsPosted] = useState(false);
->>>>>>> Stashed changes
 
   //タイムライン表示切り替え関数
   const handleClose = () => {
@@ -62,106 +58,6 @@ function App() {
   return (
   
     <Router>
-<<<<<<< Updated upstream
-      {/*タイムラインコンポーネント用タグ*/}
-      <div className='gui-container'>
-        <div className="playground-Base">
-          <Playground/>
-        </div>
-        <div className='timeline-Base'>
-          <TimeLine Bool={true} TriggerBool={isShown} setIsShown={setIsShown} isLoggedIn={true} />
-        </div>
-        {/* ログインフォームはログインされていない時のみに表示 */}
-        <div className="login-Form-Base">
-          <LoginForm/>
-        </div>
-        {/* ポストフォームはログインされていない時のみに表示 */}
-        <div className="post-Form-Base">
-          <PostForm/>
-        </div>
-        <nav className='navmenu'>
-          <TimeLine Bool={false} TriggerBool={handleShow} />
-          {/*タイムラインコンポーネント表示ボタン*/}
-          <button onClick={handleShow}>open</button>
-          <button onClick={handleClose}>close</button>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/profile">Profile</Link>
-            </li>
-            <li>
-              <Link to="/post">Post</Link>
-            </li>
-            <li>
-              <button onClick={handleLogout}>Logout</button>
-            </li>
-
-
-            {/*ログイン判別機能をコメントアウト*/}
-            {/* {loggedIn ? (
-              <>
-                <li>
-                  <Link to="/profile">Profile</Link>
-                </li>
-                <li>
-                  <Link to="/post">Post</Link>
-                </li>
-                <li>
-                  <button onClick={handleLogout}>Logout</button>
-                </li>
-              </>
-            ) : (
-              <>
-                <li>
-                  <Link to="/register">Register</Link>
-                </li>
-                <li>
-                  <Link to="/login">Login</Link>
-                </li>
-              </>
-            )} */}
-          </ul>
-        </nav>
-      </div>
-
-      <Routes>
-        <Route
-          path="/"
-          element={<div>{loggedIn ? 'Welcome to the app!' : 'Home Page'}</div>}
-        />
-        <Route
-          path="/register"
-          element={<RegisterForm />}
-        />
-        <Route
-          path="/login"
-          element={<LoginForm setLoggedIn={setLoggedIn} />}
-        />
-        <Route
-          path="/user-profile"
-          element={loggedIn ? <UserProfile userProfile={userProfile} /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/post"
-          //ログインせずともフォーム表示するように変更
-          // element={loggedIn ? <PostForm /> : <Navigate to="/login" />}
-          element={<PostForm />}
-        />
-        <Route
-          path="/post-form"
-          element={<PostForm />}
-        />
-        <Route
-          path="/posts"
-          element={<PostList />}
-        />
-      </Routes>
-    </Router>
-
-  );
-=======
       <div className='gui-container'>
         {/*タイムラインコンポーネント用タグ*/}
         {/*ログイン判別機能をコメントアウト*/}
@@ -190,7 +86,6 @@ function App() {
         </div>
         </Router>
         );
->>>>>>> Stashed changes
 }
 
 export default App;

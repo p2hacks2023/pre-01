@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-<<<<<<< Updated upstream
-import "../css/LoginForm.scss"
-=======
 import "../css/LoginForm.scss";
->>>>>>> Stashed changes
 
 function LoginForm({ setLoggedIn }) {
   const [email, setEmail] = useState('');
