@@ -40,30 +40,18 @@ function PostForm() {
   };
 
   return (
-<<<<<<< HEAD
-    <form className="postForm-Frame" onSubmit={handleSubmit}>
-      <div className='postContent-Frame'>
-        <div className="stick-Frame">
-          <textarea rows='2' className="postContent" value={postContent} onChange={(e) => setPostContent(e.target.value)} required />
-        </div>
-      </div>
-      <div className='postSubmit-Frame'>
-        <button type="submit" className='postSubmit'>Post</button>
-      </div>
-    </form>
-=======
     <div className="form-Frame">
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Post Content:</label>
-          <textarea value={postContent} onChange={(e) => setPostContent(e.target.value)} required />
+      <form className="postForm-Frame" onSubmit={handleSubmit}>
+        <div className='postContent-Frame'>
+          <div className="stick-Frame">
+            <textarea rows='2' className="postContent" value={postContent} onChange={(e) => setPostContent(e.target.value)} required />
         </div>
-        <div>
-          <button type="submit">Post</button>
+        </div>
+        <div className='postSubmit-Frame'>
+          <button type="submit" className='postSubmit'>Post</button>
         </div>
       </form>
     </div>
->>>>>>> add_playground
   );
 }
 
