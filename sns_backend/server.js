@@ -1,5 +1,3 @@
-// server.js
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -66,7 +64,7 @@ app.get('/secure-endpoint', auth.verifyToken, (req, res) => {
 });
 
 // プロフィール情報取得エンドポイント
-app.get('/user-profile', auth.verifyToken, (req, res) => {
+app.get('/user-profile/:userId', auth.verifyToken, (req, res) => {
   const userId = req.user.userId;
 
   // データベースからユーザーの情報を取得
@@ -91,6 +89,7 @@ app.post('/post', auth.verifyToken, auth.createPost);
 app.get('/posts', (req, res) => {
   // データベースから全ての投稿を取得
   const sql = 'SELECT * FROM posts';
+  //全部一括で取得じゃなくてユーザーID別に取得してそれぞれ送信できるようにして！！！！！！！！！！
   db.query(sql, (err, results) => {
     if (err) {
       console.error('Error fetching posts:', err);

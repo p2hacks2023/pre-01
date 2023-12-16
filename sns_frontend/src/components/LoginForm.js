@@ -1,8 +1,11 @@
-// src/components/LoginForm.js
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+<<<<<<< Updated upstream
+import "../css/LoginForm.scss"
+=======
+import "../css/LoginForm.scss";
+>>>>>>> Stashed changes
 
 function LoginForm({ setLoggedIn }) {
   const [email, setEmail] = useState('');
@@ -11,38 +14,55 @@ function LoginForm({ setLoggedIn }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       const response = await axios.post('http://localhost:3001/login', { email, password });
-
-      // トークンを取得
-      const token = response.data.token;
-
-      // トークンをlocalStorageに保存
-      localStorage.setItem('token', token);
-
-      // ログイン成功時の処理
-      console.log('Login successful:', response.data);
-
-      // ログイン成功後にプロフィール画面に遷移
-      setLoggedIn(true);
-      navigate('/user-profile');
+      console.log('Login response:', response.data);
+  
+      const responseData = response.data;
+  
+      if (responseData.token) {
+        const token = responseData.token;
+        localStorage.setItem('token', token);
+        setLoggedIn(true);
+  
+        const userId = responseData.userId;
+        console.log('User ID:', userId);
+        navigate(`/user-profile/${userId}`);
+      } else {
+        console.error('Invalid response format:', responseData);
+      }
     } catch (error) {
-      console.error('Login error:', error.response.data);
+      // エラーレスポンスがあるかどうかを確認
+      if (error.response) {
+        console.error('Login error:', error.response.data);
+      } else {
+        console.error('Network error:', error.message);
+      }
     }
   };
+  
+  
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Email:</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+    <form className= 'loginForm-Frame' onSubmit={handleSubmit}>
+      <div className='email-Form-Frame'>
+        <div className="label-Frame">
+          <label className='email-Label'>Email</label>
+        </div>
+        <div className="inputForm-Frame">
+          <input type="email" className="email-Form" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        </div>
       </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+      <div className='password-Form-Frame'>
+        <div className="label-Frame">
+          <label className='password-Label'>Password</label>
+        </div>
+        <div className="inputForm-Frame">
+          <input type="password" className="password-Form" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        </div>
       </div>
-      <div>
-        <button type="submit">Login</button>
+      <div className='submit-Button-Frame'>
+        <button className="submit-Button" type="submit">Login</button>
       </div>
     </form>
   );

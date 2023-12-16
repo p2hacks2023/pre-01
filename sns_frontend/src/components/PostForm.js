@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import "../css/PostForm.scss"
 
-function PostForm() {
+function PostForm(props) {
   const [postContent, setPostContent] = useState('');
+  const IsPostedSetter = () => {
+    props.setIsPosted(true)
+    props.setIsPosted(false)
 
+}
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -39,15 +44,22 @@ function PostForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Post Content:</label>
-        <textarea value={postContent} onChange={(e) => setPostContent(e.target.value)} required />
-      </div>
-      <div>
-        <button type="submit">Post</button>
-      </div>
-    </form>
+    <div className="form-Frame">
+      <form className="postForm-Frame" onSubmit={handleSubmit}>
+        <div className='postContent-Frame'>
+          <div className="stick-Frame">
+            <textarea rows='2' className="postContent" value={postContent} onChange={(e) => setPostContent(e.target.value)} required />
+        </div>
+        </div>
+        <div className='postSubmit-Frame'>
+<<<<<<< Updated upstream
+          <button type="submit" className='postSubmit'>Post</button>
+=======
+          <button type="submit" className='postSubmit' onClick={props.setIsPosted()}>Post</button>
+>>>>>>> Stashed changes
+        </div>
+      </form>
+    </div>
   );
 }
 

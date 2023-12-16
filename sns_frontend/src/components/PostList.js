@@ -1,10 +1,14 @@
-// PostList.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import "../css/PostList.scss"
+import Post from "./Post.js"
+<<<<<<< Updated upstream
 const PostList = () => {
+=======
+const PostList = (props) => {
+>>>>>>> Stashed changes
   const [posts, setPosts] = useState([]);
-
+  
   useEffect(() => {
     // 投稿を取得するAPI呼び出し
     const fetchPosts = async () => {
@@ -20,12 +24,20 @@ const PostList = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Post List</h1>
-      <ul>
+    <div className='postlists-Frame'>
+      {/* <h1>Post List</h1> */}
+      <ul className='postlists'>
         {posts.map((post) => (
-          <li key={post.id}>{post.content}</li>
+          <li key={post.id}>
+            
+<<<<<<< Updated upstream
+            <Post content={'あいうえ'}/>
+=======
+            <Post content={post.content}/>
+>>>>>>> Stashed changes
+          </li>
         ))}
+        {/*テスト用リスト*/ }
       </ul>
     </div>
   );
