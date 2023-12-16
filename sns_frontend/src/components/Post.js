@@ -1,4 +1,7 @@
+<<<<<<< Updated upstream
 // Post.js
+=======
+>>>>>>> Stashed changes
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "../css/Post.scss"
@@ -19,4 +22,8 @@ function Post(props) {
         </div>
       );
 }
+<<<<<<< Updated upstream
 export default Post;
+=======
+export default Post;
+>>>>>>> Stashed changes

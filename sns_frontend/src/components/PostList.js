@@ -1,9 +1,12 @@
-// PostList.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "../css/PostList.scss"
 import Post from "./Post.js"
+<<<<<<< Updated upstream
 const PostList = () => {
+=======
+const PostList = (props) => {
+>>>>>>> Stashed changes
   const [posts, setPosts] = useState([]);
   
   useEffect(() => {
@@ -27,7 +30,11 @@ const PostList = () => {
         {posts.map((post) => (
           <li key={post.id}>
             
+<<<<<<< Updated upstream
             <Post content={'あいうえ'}/>
+=======
+            <Post content={post.content}/>
+>>>>>>> Stashed changes
           </li>
         ))}
         {/*テスト用リスト*/ }

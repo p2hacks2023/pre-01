@@ -1,5 +1,3 @@
-// src/App.js
-
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
 import UserProfile from './components/UserProfile';
@@ -19,7 +17,12 @@ import axios from 'axios';
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
+<<<<<<< Updated upstream
   const [isShown, setIsShown] = useState(false)
+=======
+  const [isShown, setIsShown] = useState(false);
+  const [isPosted, setIsPosted] = useState(false);
+>>>>>>> Stashed changes
 
   //タイムライン表示切り替え関数
   const handleClose = () => {
@@ -59,6 +62,7 @@ function App() {
   return (
   
     <Router>
+<<<<<<< Updated upstream
       {/*タイムラインコンポーネント用タグ*/}
       <div className='gui-container'>
         <div className="playground-Base">
@@ -157,6 +161,36 @@ function App() {
     </Router>
 
   );
+=======
+      <div className='gui-container'>
+        {/*タイムラインコンポーネント用タグ*/}
+        {/*ログイン判別機能をコメントアウト*/}
+        {loggedIn ? (
+
+          <div>
+          <div className="playground-Base">
+              <Playground />
+          </div>
+          <div className='timeline-Base'>
+              <TimeLine Bool={true} TriggerBool={isShown} Posted={isPosted} setIsShown={setIsShown} isLoggedIn={true} />
+          </div>
+          
+          <div className="post-Form-Base">
+            <PostForm setIsPosted={setIsPosted}/>
+          </div>
+          <TimeLine Bool={false} TriggerBool={handleShow} Posted={isPosted}/>
+          {/*タイムラインコンポーネント表示ボタン*/}
+            <button onClick={handleShow} className='OCButton1'>My Profile</button>
+          </div>
+        ) : (
+          <div className="login-Form-Base">
+            <LoginForm setLoggedIn ={setLoggedIn}/>
+          </div>
+        )}
+        </div>
+        </Router>
+        );
+>>>>>>> Stashed changes
 }
 
 export default App;

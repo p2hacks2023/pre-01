@@ -1,10 +1,21 @@
 .avatar-Body{
     width: 500px;
+<<<<<<< Updated upstream
     height:auto;
     // position: absolute;
     display:inline-block;
     justify-content: center;
     align-items: center;
+=======
+    height: auto;
+    // background: rgb(200, 224, 252);
+    // vertical-align: middle;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+>>>>>>> Stashed changes
 }
 .avatar-Body:hover{
     >.post-Base{
@@ -12,8 +23,22 @@
         opacity: 1;
     }
 }
+<<<<<<< Updated upstream
 .post-Base{
     opacity: 0;   
+=======
+.animal-Img{
+    width: 70%;
+    height: 70%;
+    // object-fit: cover;
+    
+}
+.post-Base{
+    opacity: 0;
+}
+img{
+    display: inline;
+>>>>>>> Stashed changes
 }
 .animal-Base{
     width: 100%;
@@ -22,9 +47,16 @@
     justify-content: center;
     display: flex;
 }
+<<<<<<< Updated upstream
 .animal-Base:hover + .post-Base{
     opacity: 1;
 }
 
 
 
+=======
+
+// .animal-Base:hover+.post-Base{
+//     opacity: 1;
+// }
+>>>>>>> Stashed changes
