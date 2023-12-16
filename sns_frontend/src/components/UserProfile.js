@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link, useParams } from 'react-router-dom';
 import axios from 'axios';
-import whale from "../images/whale.png"
+import Penguin from "../images/penguinProto.png"
 import '../css/UserProfile.scss'
 
 const UserProfile = () => {
@@ -42,7 +42,7 @@ const UserProfile = () => {
         <div className='timeline-Profile'>
             {/*プロフィール画像*/}
             <div className='profile-Img-Frame'>
-              <img src={whale} className="profile-Img" alt="logo" />
+              <img src={Penguin} className="profile-Img" alt="logo" />
             </div>
             {/*プロフィール右側*/}
             <div className='profile-Right'>
