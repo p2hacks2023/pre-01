@@ -40,13 +40,14 @@ function PostForm() {
   };
 
   return (
-    <form className="PostForm-Frame" onSubmit={handleSubmit}>
-      <div className='PostContent-Frame'>
-        <label>Post Content:</label>
-        <textarea value={postContent} onChange={(e) => setPostContent(e.target.value)} required />
+    <form className="postForm-Frame" onSubmit={handleSubmit}>
+      <div className='postContent-Frame'>
+        <div className="stick-Frame">
+          <textarea className="postContent" value={postContent} onChange={(e) => setPostContent(e.target.value)} required />
+        </div>
       </div>
-      <div className='PostSubmit-Frame'>
-        <button type="submit">Post</button>
+      <div className='postSubmit-Frame'>
+        <button type="submit" className='postSubmit'>Post</button>
       </div>
     </form>
   );

@@ -73,15 +73,19 @@ function App() {
         <div className='timeline-Base'>
           <TimeLine Bool={true} TriggerBool={isShown} setIsShown={setIsShown} isLoggedIn={true} />
         </div>
+        {/* ログインフォームはログインされていない時のみに表示 */}
         <div className="login-Form-Base">
           <LoginForm/>
+        </div>
+        {/* ポストフォームはログインされていない時のみに表示 */}
+        <div className="post-Form-Base">
+          <PostForm/>
         </div>
         <nav className='navmenu'>
           <TimeLine Bool={false} TriggerBool={handleShow} />
           {/*タイムラインコンポーネント表示ボタン*/}
           <button onClick={handleShow}>open</button>
           <button onClick={handleClose}>close</button>
-
           <ul>
             <li>
               <Link to="/">Home</Link>
