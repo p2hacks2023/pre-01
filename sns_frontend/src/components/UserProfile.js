@@ -66,10 +66,6 @@ const UserProfile = () => {
             </div>
           </div>
         </div>
-        
-
-
-
     </div>
   );
 };
