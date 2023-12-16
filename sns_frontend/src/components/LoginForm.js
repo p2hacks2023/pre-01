@@ -33,14 +33,22 @@ function LoginForm({ setLoggedIn }) {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form className= 'loginForm-Frame' onSubmit={handleSubmit}>
       <div className='email-Form-Frame'>
-        <label>Email:</label>
-        <input type="email" className="email-Form" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <div className="label-Frame">
+          <label className='email-Label'>Email</label>
+        </div>
+        <div className="inputForm-Frame">
+          <input type="email" className="email-Form" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        </div>
       </div>
       <div className='password-Form-Frame'>
-        <label>Password:</label>
-        <input type="password" className="password-Form" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <div className="label-Frame">
+          <label className='password-Label'>Password</label>
+        </div>
+        <div className="inputForm-Frame">
+          <input type="password" className="password-Form" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        </div>
       </div>
       <div className='submit-Button-Frame'>
         <button className="submit-Button" type="submit">Login</button>

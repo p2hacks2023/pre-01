@@ -71,11 +71,13 @@ body{
 }
 .login-Form-Base{
   display: flex;
+  height: 50%;
+  width: 500px;
   // align-items: center;
   // justify-content: center;
   position: absolute;
-  // bottom: 0;
-  left: 40%;
+  bottom: 30%;
+  left: 35%;
 }
 
 .navmenu{
@@ -86,3 +88,7 @@ body{
 #root{
   height: 100%;
 }
+
+code {
+}
+
