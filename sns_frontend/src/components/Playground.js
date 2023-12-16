@@ -26,7 +26,7 @@ function Playground() {
   useEffect(() => {
     const interval = setInterval(() => {
       moveAvatars();
-    }, 200); // 100ミリ秒ごとに動かす、適宜調整してください
+    }, 200); // 200ミリ秒ごとに動かす、適宜調整してください
 
     return () => clearInterval(interval); // コンポーネントがアンマウントされた時にクリアする
   }, []);
