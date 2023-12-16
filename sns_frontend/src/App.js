@@ -79,8 +79,13 @@ function App() {
             <button onClick={handleShow} className='OCButton1'>My Profile</button>
           </div>
         ) : (
-          <div className="login-Form-Base">
-            <LoginForm setLoggedIn ={setLoggedIn}/>
+          <div>
+            <div className="login-Form-Base">
+              <LoginForm setLoggedIn ={setLoggedIn}/>
+            </div>
+            <div className="register-Form-Base">
+              <RegisterForm/>
+            </div>
           </div>
         )}
         </div>

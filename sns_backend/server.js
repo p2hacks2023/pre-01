@@ -16,8 +16,8 @@ app.use(bodyParser.json());
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'Tt1023hH',
-  database: 'sns_app',
+  password: 'chino423',
+  database: 'snsapp',
 });
 
 // MySQL接続
