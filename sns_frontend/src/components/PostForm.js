@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import "../css/PostForm.scss"
 
 function PostForm() {
   const [postContent, setPostContent] = useState('');
@@ -39,12 +40,12 @@ function PostForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form className="PostForm-Frame" onSubmit={handleSubmit}>
+      <div className='PostContent-Frame'>
         <label>Post Content:</label>
         <textarea value={postContent} onChange={(e) => setPostContent(e.target.value)} required />
       </div>
-      <div>
+      <div className='PostSubmit-Frame'>
         <button type="submit">Post</button>
       </div>
     </form>
