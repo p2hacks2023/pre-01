@@ -1,5 +1,30 @@
 .avatar-Body{
-    width: 450px;
-    height:400px;
-    position: absolute;
+    width: 500px;
+    height:auto;
+    // position: absolute;
+    display:inline-block;
+    justify-content: center;
+    align-items: center;
 }
+.avatar-Body:hover{
+    >.post-Base{
+        transition: opacity 0.3s 0s ease-in;
+        opacity: 1;
+    }
+}
+.post-Base{
+    opacity: 0;   
+}
+.animal-Base{
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.animal-Base:hover + .post-Base{
+    opacity: 1;
+}
+
+
+

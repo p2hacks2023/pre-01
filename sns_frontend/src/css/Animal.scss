@@ -1,0 +1,20 @@
+.animal-Frame{
+    width: 200px;
+    height: 200px;
+    background: rgb(200, 224, 252);
+    // vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+}
+.animal-Img{
+    width: 70%;
+    height: 70%;
+    // object-fit: cover;
+    
+}
+img{
+    display: inline;
+}

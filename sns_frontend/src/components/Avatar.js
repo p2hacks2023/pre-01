@@ -12,7 +12,7 @@ function Avatar({top,left}) {
       };
     return(
         <div className='avatar-Body' style={{ ...buttonStyle }}>
-            <div className='post-Base'><Post/></div>
+            <div className='post-Base'><Post content={'あいうえお'}/></div>
             <div className="animal-Base"><Animal/></div>
         </div>
     );
