@@ -1,6 +1,6 @@
 // src/App.js
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
 import UserProfile from './components/UserProfile';
 import RegisterForm from './components/RegisterForm';
@@ -8,7 +8,7 @@ import LoginForm from './components/LoginForm';
 import PostForm from './components/PostForm';
 import PostList from './components/PostList';
 import TimeLine from './components/TimeLine';
-import TimeLineTrigger from './components/TimeLineTrigger';
+import Playground from './components/Playground';
 
 import './css/App.scss'
 
@@ -20,15 +20,6 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
   const [isShown, setIsShown] = useState(false)
-  //タイムライン外クリック時用変数
-  const onClickBackground = () => {
-    handleShow();
-  };
-
-  // 枠内クリック
-  // const onClickCard = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-  //   e.stopPropagation();
-  // };
 
   //タイムライン表示切り替え関数
   const handleClose = () => {
@@ -66,10 +57,13 @@ function App() {
   };
 
   return (
-
+  
     <Router>
       {/*タイムラインコンポーネント用タグ*/}
       <div className='gui-container'>
+        <div className="playground-Base">
+          <Playground/>
+        </div>
         <div className='timeline-Base'>
           <TimeLine Bool={true} TriggerBool={isShown} setIsShown={setIsShown} isLoggedIn={true} />
         </div>
