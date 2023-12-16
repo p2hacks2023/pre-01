@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import "../css/LoginForm.scss"
 
 function LoginForm({ setLoggedIn }) {
   const [email, setEmail] = useState('');
@@ -33,16 +34,16 @@ function LoginForm({ setLoggedIn }) {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div className='email-Form-Frame'>
         <label>Email:</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <input type="email" className="email-Form" value={email} onChange={(e) => setEmail(e.target.value)} required />
       </div>
-      <div>
+      <div className='password-Form-Frame'>
         <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <input type="password" className="password-Form" value={password} onChange={(e) => setPassword(e.target.value)} required />
       </div>
-      <div>
-        <button type="submit">Login</button>
+      <div className='submit-Button-Frame'>
+        <button className="submit-Button" type="submit">Login</button>
       </div>
     </form>
   );

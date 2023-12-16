@@ -73,6 +73,9 @@ function App() {
         <div className='timeline-Base'>
           <TimeLine Bool={true} TriggerBool={isShown} setIsShown={setIsShown} isLoggedIn={true} />
         </div>
+        <div className="login-Form-Base">
+          <LoginForm/>
+        </div>
         <nav className='navmenu'>
           <TimeLine Bool={false} TriggerBool={handleShow} />
           {/*タイムラインコンポーネント表示ボタン*/}
