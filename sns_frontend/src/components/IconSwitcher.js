@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const IconSwitcher = () => {
+function IconSwitcher(){
   const [showOptions, setShowOptions] = useState(false);
   const [selectedIcon, setSelectedIcon] = useState('logo192.png'); // デフォルトのアイコン
 
