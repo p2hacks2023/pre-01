@@ -43,7 +43,7 @@ function PostForm() {
     <form className="postForm-Frame" onSubmit={handleSubmit}>
       <div className='postContent-Frame'>
         <div className="stick-Frame">
-          <textarea className="postContent" value={postContent} onChange={(e) => setPostContent(e.target.value)} required />
+          <textarea rows='2' className="postContent" value={postContent} onChange={(e) => setPostContent(e.target.value)} required />
         </div>
       </div>
       <div className='postSubmit-Frame'>
