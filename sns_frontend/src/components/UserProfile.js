@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link, useParams } from 'react-router-dom';
 import axios from 'axios';
+import whale from "../images/whale.png"
 import Penguin from "../images/penguinProto.png"
 import '../css/UserProfile.scss'
 
@@ -13,7 +14,7 @@ const UserProfile = () => {
     // プロフィール情報を取得するAPI呼び出し
     const fetchProfile = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/user-profile/${userId}`, {
+        const response = await axios.get(`http://localhost:3001/user-profile`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
@@ -36,13 +37,18 @@ const UserProfile = () => {
   }, [userId]); // userId と token を依存リストに追加
 
   return (
-    <div>
+    <div className='profile-Base'>
       {userProfile ? (
-        <div>
+        
         <div className='timeline-Profile'>
             {/*プロフィール画像*/}
-            <div className='profile-Img-Frame'>
-              <img src={Penguin} className="profile-Img" alt="logo" />
+            <div className="profile-Left">
+              <div className='profile-Img-Frame'>
+                <img src={Penguin} className="profile-Img" alt="logo" />
+              </div>
+              <div className="animalS-Frame">
+                <div className="animalS">Penguin</div>
+              </div>
             </div>
             {/*プロフィール右側*/}
             <div className='profile-Right'>
@@ -63,12 +69,8 @@ const UserProfile = () => {
             {/*プロフィール下部分*/}
             <div className='profile-Foot'>
               {/*動物種類テキスト*/}
-              <div className="animalS-Frame">
-                <div className='animalS'>Whale</div>
-              </div>
             </div>
           </div>
-      </div>
       ) : (
         <p>Error fetching profile. Please try again later.</p>
       )}

@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../css/Register.scss'
 
 function RegisterForm({ setLoggedIn }) {
   const [email, setEmail] = useState('');
@@ -31,21 +32,21 @@ function RegisterForm({ setLoggedIn }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Email:</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+    <form className='register-Form' onSubmit={handleSubmit}>
+      <div className='Frame'>
+        <label className='regLabel'>Email:</label>
+        <input className='regInput'type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
       </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+      <div className='Frame'>
+        <label className='regLabel'>Password:</label>
+        <input className='regInput' type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
       </div>
-      <div>
-        <label>Username:</label>
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
+      <div className='Frame'>
+        <label className='regLabel'>Username:</label>
+        <input className='regInput' type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
       </div>
-      <div>
-        <button type="submit">Register</button>
+      <div className='Frame'>
+        <button id='regButton' type="submit">Register</button>
       </div>
     </form>
   );

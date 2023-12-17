@@ -7,6 +7,7 @@ import PostForm from './components/PostForm';
 import PostList from './components/PostList';
 import TimeLine from './components/TimeLine';
 import Playground from './components/Playground';
+import Home from './components/Home';
 
 import './css/App.scss'
 
@@ -17,16 +18,6 @@ import axios from 'axios';
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
-  const [isShown, setIsShown] = useState(false);
-  const [isPosted, setIsPosted] = useState(false);
-
-  //タイムライン表示切り替え関数
-  const handleClose = () => {
-    setIsShown(false)
-  }
-  const handleShow = () => {
-    setIsShown(true)
-  }
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -41,6 +32,7 @@ function App() {
         .then(response => {
           setUserProfile(response.data.userProfile);
           setLoggedIn(true);
+          console.log('Already LoggedInned ID:',userProfile['id']);
         })
         .catch(error => {
           console.error('Error fetching user profile:', error);
@@ -58,32 +50,35 @@ function App() {
   return (
   
     <Router>
-      <div className='gui-container'>
-        {/*タイムラインコンポーネント用タグ*/}
-        {/*ログイン判別機能をコメントアウト*/}
-        {loggedIn ? (
-
-          <div>
-          <div className="playground-Base">
-              <Playground />
-          </div>
-          <div className='timeline-Base'>
-              <TimeLine Bool={true} TriggerBool={isShown} Posted={isPosted} setIsShown={setIsShown} isLoggedIn={true} />
-          </div>
           
-          <div className="post-Form-Base">
-            <PostForm setIsPosted={setIsPosted}/>
-          </div>
-          <TimeLine Bool={false} TriggerBool={handleShow} Posted={isPosted}/>
-          {/*タイムラインコンポーネント表示ボタン*/}
-            <button onClick={handleShow} className='OCButton1'>My Profile</button>
-          </div>
-        ) : (
-          <div className="login-Form-Base">
-            <LoginForm setLoggedIn ={setLoggedIn}/>
-          </div>
-        )}
-        </div>
+          
+          <Routes>
+            <Route  path='/'
+                  element={loggedIn?<Navigate to={'/post-profile/'+ userProfile.id}/>:<Navigate to={'/login'}/>}
+            />
+            <Route  path={loggedIn?'/post-profile/'+ userProfile.id:'/'}
+                  element={<Home userProfile={userProfile}/>}
+            />
+            <Route  path='/posts'
+                  element={<PostList/>}
+            />
+            <Route  path='/register'
+                  element={<RegisterForm/>}
+            />
+            <Route  path='/login'
+                    element={<div className='notLoggedInFrame'><LoginForm setLoggedIn={setLoggedIn}/><RegisterForm/></div>}
+            />
+            <Route  path='/post-form'
+                    element={<PostForm/>}
+            />
+          </Routes>
+          
+          
+
+          
+
+
+        
         </Router>
         );
 }

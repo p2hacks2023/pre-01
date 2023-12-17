@@ -4,38 +4,36 @@ import axios from 'axios';
 import Avatar from './Avatar';
 import iceberg from '../images/iceberg.png'
 
-function Playground() {
+function Playground(refresh) {
   const [posts, setPosts] = useState([]);
+  const [userProfile, setUserProfile] = useState(null);
   // const [contentList, setContentList] = useState([]);
-  const contentList = [];
-  useEffect(() => {
-      // 投稿を取得するAPI呼び出し
-      const fetchPosts = async () => {
-        try {
-          const response = await axios.get('http://localhost:3001/posts');
-          setPosts(response.data.posts);
-          console.log(posts[0]['content']);
-          // posts.map((post) => (setContentList([post.content])));
+  const [contentList,setContentList]= useState([]);
+  // const { userId } = useParams();
 
-          for (let index = 0; index < posts.length; index++) {
-            const element = posts[index]['content'];
-            contentList.push(element);
-            
-          }
-          console.log(contentList[0]);
-        } catch (error) {
-          console.error('Error fetching posts:', error);
+  useEffect(() => {
+    // 投稿を取得するAPI呼び出し
+    const fetchPosts = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3001/posts`);
+        // console.log(userId)
+        setPosts(response.data.posts);
+        for (let index = 0; index < posts.length; index++) {
+            contentList[index] = posts[index]['content']
+            console.log('content:',contentList[index]);
         }
-      };
-  
-      fetchPosts();
-    }, []);
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      }
+    };
+    fetchPosts();
+  }, [refresh]);
   // アバターの位置情報をStateで管理
   const [avatarsPosition, setAvatarsPosition] = useState([
-    { top: 150, left: 300 },
-    { top: 100, left: 900 },
-    { top: 400, left: 150 },
-    { top: 400, left: 1000 },
+    { top: 10, left: 30 },
+    { top: 400, left: 90 },
+    { top: 300, left: 1050 },
+    { top: 100, left: 700 },
   ]);
 
  
@@ -71,7 +69,7 @@ function Playground() {
       {/* <h1>Post List</h1> */}
         <ul>
           {avatarsPosition.map((position, index) => (
-            <Avatar key={index} top={position.top} left={position.left} content={"こんにちは！"}/>
+            <Avatar key={index}content={contentList[contentList.length-index]} top={position.top} left={position.left} />
           ))}
         </ul>
       </div>

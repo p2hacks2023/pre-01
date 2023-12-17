@@ -1,11 +1,18 @@
 // Avatar.js
 import React, {useEffect,useState } from 'react';
+import { useNavigate, Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import "../css/Avatar.scss"
 import Animal from "./Animal.js"
 import Post from './Post.js';
 
 function Avatar({top,left,content}) {
+    const [userProfile, setUserProfile] = useState(null);
+    const [posts, setPosts] = useState([]);
+    const { userId } = useParams();
+
+   
+
 
     const buttonStyle = {
         position: 'absolute',

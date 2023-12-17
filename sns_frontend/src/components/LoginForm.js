@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import "../css/LoginForm.scss";
 
-function LoginForm({ setLoggedIn }) {
+function LoginForm({ setLoggedIn}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -21,10 +21,20 @@ function LoginForm({ setLoggedIn }) {
         const token = responseData.token;
         localStorage.setItem('token', token);
         setLoggedIn(true);
-  
-        const userId = responseData.userId;
+         // axios.defaults.headers.common を使用して Authorization ヘッダーを設定し、以降のすべてのリクエストで使用します
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+      // ユーザー情報を取得するために secure-endpoint を呼び出す
+        const verifiedResponse = await axios.get('http://localhost:3001/secure-endpoint');
+      
+      // レスポンスからユーザーIDを抽出
+        const userId = verifiedResponse.data.user.userId;
+
         console.log('User ID:', userId);
-        navigate(`/user-profile/${userId}`);
+        // navigate(`/user-profile/${userId}`);
+        // navigate(`/user-profile`);
+        navigate(`/`);
+
       } else {
         console.error('Invalid response format:', responseData);
       }

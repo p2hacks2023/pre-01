@@ -30,7 +30,7 @@ function TimeLine(props) {
                     {/* <button onClick={parentIsShowSetter}>
                         Close Menu
                     </button> */}
-                    <PostList isPosted={props.Posted}/>
+                    <PostList refresh={props.refresh}/>
                 </div>
             </div>
         )

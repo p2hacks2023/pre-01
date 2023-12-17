@@ -126,3 +126,35 @@ height: 50px;
     border-radius: 20px ;
     background: #FF3B8E ;
 }
+
+.OCButton2{
+  width: 200px;
+  height: 50px;
+  
+    position: absolute;
+    left: 42%;
+    top: 10%;
+    color: #FFF;
+      font-family: Inter;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
+      border: none;
+      border-radius: 20px ;
+      background: #FF3B8E ;
+      :hover{
+        background: #ff4a96 ;
+      }
+  }
+
+.notLoggedInFrame{
+  width: 40%;
+  height: auto;
+
+  margin: 10% auto 0 auto;
+  display: box;
+  justify-content: center;
+  align-items: center;
+
+}

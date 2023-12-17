@@ -107,10 +107,6 @@ const verifyToken = (req, res, next) => {
 
 const getUserProfile = (req, res) => {
   const userId = req.params.userId;
-  
-  // トークンが正しく取得できているかログで確認
-  const token = req.headers.authorization.split(' ')[1];
-  console.log('Token:', token);
 
   // データベースからユーザーの情報を取得
   const sql = 'SELECT id, username, email FROM users WHERE id = ?';
@@ -126,7 +122,6 @@ const getUserProfile = (req, res) => {
     }
   });
 };
-
 
 const createPost = (req, res) => {
   const { content } = req.body;
@@ -149,39 +144,23 @@ const createPost = (req, res) => {
 };
 
 const getPosts = (req, res) => {
-  const sql = `
-    SELECT posts.id, posts.user_id, posts.content, posts.created_at, users.username
-    FROM posts
-    JOIN users ON posts.user_id = users.id
-    ORDER BY posts.created_at DESC
-  `;
-
+  // データベースから全ての投稿を取得
+  const sql = 'SELECT * FROM posts ORDER BY created_at DESC';
   db.query(sql, (err, results) => {
     if (err) {
       console.error('Error fetching posts:', err);
       res.status(500).json({ error: 'Internal Server Error' });
     } else {
-      // ユーザーネームを投稿オブジェクトに追加
-      const postsWithUsername = results.map(post => ({
-        id: post.id,
-        user_id: post.user_id,
-        content: post.content,
-        created_at: post.created_at,
-        username: post.username,
-      }));
-
-      res.json({ posts: postsWithUsername });
+      res.json({ posts: results });
     }
   });
 };
-
-
 
 module.exports = {
   register,
   login,
   verifyToken,
   getUserProfile,
-  createPost,
+  createPost, 
   getPosts,
 };

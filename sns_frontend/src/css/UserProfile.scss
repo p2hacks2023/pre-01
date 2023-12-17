@@ -1,31 +1,29 @@
+.profile-Base{
+    width: 100%;
+    height: 20%;
+}
 .timeline-Profile{
     width: 100%;
-    height: 200px;
+    height: 100%;
     position: relative;
     border-radius: 20px 20px 0px 0px;
     border-bottom: 1px solid #EAE6E6;
 }
 .profile-Right{
-    width: 45%;
+    width: 40%;
     height:100%;
-
-    position: absolute;
-    top:0;
-    left: 50%;
-
+    float: left;
     text-align: center;
 }
 .profile-Img-Frame{
     width: 120px;
     height: 120px;
-    // position: absolute;
-    position: relative;
-    top: 28px;
-    left: 17px;
+    
+    // float: left;
 
     justify-content: center;
     align-items: center;
-
+    margin: 0 0 0 10px;
     border-radius: 60px;
     stroke-width: 1px;
     stroke: #CCC;
@@ -91,16 +89,17 @@
 .profile-FollowB:active{
     color: #34333396;
 }
-.profile-Foot{
-    position: absolute;
-    width: 100%;
-    height: 100px;
-
-    top: 60%;
+.profile-Left{
+    display: block;
+    width: 50%;
+    float: left;
+    margin: 20px 0 0 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 .animalS-Frame{
-    height: 100%;
-    width: 50%;
+    
     display: inline-flex;
     // padding: 10px;
     justify-content: center;

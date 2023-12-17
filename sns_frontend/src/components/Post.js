@@ -3,6 +3,15 @@ import axios from 'axios';
 import "../css/Post.scss"
 
 function Post(props) {
+    const [randomLike,setRandomLike]=useState(null);
+
+    
+    useEffect(()=>{
+        const random = ()=>{
+            var number = Math.floor(Math.random() * 100)
+            console.log(number)
+            setRandomLike(randomLike)
+    }});
     return (
         <div className='post-Frame'>
             <div className="post-Body">
