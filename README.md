@@ -25,16 +25,18 @@ ICE BOX
 プレゼン　前田
 
 開発における工夫した点  
-ノリで開発してるので結構グダグダでしたが、なんとか完成まで持っていけました
+・バックエンド、フロントエンド、UI、タスク管理など個人に役割分担をして、作業した点
+・「ひんやり」というテーマが確定したのち、明確に目標と完成型を共有し、それに向けて開発を始めた点。
+・コミュニケーションツールとしてDiscord、タスクや進捗管理にnotionを用いて、今何をすべきかを明確にしながら開発を進めた点。
 
 ## 開発技術 
 
 利用したプログラミング言語  
-React,axious,react-router-dom,Node.js・Express,MySQL,bcrypt,jsonwebtoken,crypto
+... javascript, SQL, Node.js
   
 
 利用したフレームワーク・ライブラリ  
-...  
+...  axios, react-router-dom, react-dom, react
 
 その他開発に使用したツール・サービス
-...  
+...  vsCode, Figma, react, illustrater
